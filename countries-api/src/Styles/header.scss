@@ -1,5 +1,11 @@
-@use "./variables.scss";
+@import "./variables.scss";
 
 .level {
-  background-color: $DM-VeryDarkBlue;
+  background-color: $DM-DarkBlue;
+  height: 8em;
+}
+
+.button {
+  background-color: $DM-DarkBlue;
+  border: none;
 }
