@@ -1,0 +1,20 @@
+@import "bulma/css/bulma.css";
+
+// *---FONTS----*
+$font-stack: "Nunito Sans", sans-serif;
+
+// *---COLORS DARK_MODE----*
+// Dark Mode Elements
+$DM-DarkBlue: hsl(209, 23%, 22%);
+// Dark Mode Background
+$DM-VeryDarkBlue: hsl(207, 26%, 17%);
+// Dark Mode Text & Light Mode Elements
+$White: hsl(0, 0%, 100%);
+
+// *---COLORS LIGHT_MODE----*
+// Light Mode Text
+$LM-VeryDarkBlue: hsl(200, 15%, 8%);
+// Light Mode Input
+$LM-DarkGray: hsl(0, 0%, 52%);
+// Light Mode Background
+$LM-LightGray: hsl(0, 0%, 98%);

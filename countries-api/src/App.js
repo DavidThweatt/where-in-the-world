@@ -1,9 +1,15 @@
-import "./App.css";
+import React from "react";
+import "bulma/css/bulma.css";
+import Header from "./Components/header";
+import Main from "./Components/main";
+import Country from "./Components/country";
 
 function App() {
   return (
     <div className="App">
-      <h1>hello world</h1>
+      <Header />
+      <Main />
+      <Country />
     </div>
   );
 }
