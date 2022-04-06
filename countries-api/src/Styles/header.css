@@ -1,9 +1,42 @@
-.level {
+@import "bulma/css/bulma.css";
+.header {
   background-color: hsl(209deg, 23%, 22%);
   height: 8em;
+  width: 100%;
 }
 
-.button {
+@media (min-width: 600px) {
+  .title {
+    margin-left: 2em;
+  }
+}
+@media (min-width: 1200px) {
+  .title {
+    margin-left: 4em;
+  }
+}
+@media (min-width: 1800px) {
+  .title {
+    margin-right: 6em;
+  }
+}
+
+.darkBtn {
   background-color: hsl(209deg, 23%, 22%);
   border: none;
+}
+@media (min-width: 600px) {
+  .darkBtn {
+    margin-right: 3em;
+  }
+}
+@media (min-width: 1200px) {
+  .darkBtn {
+    margin-right: 6em;
+  }
+}
+@media (min-width: 1800px) {
+  .darkBtn {
+    margin-right: 9em;
+  }
 }/*# sourceMappingURL=header.css.map */

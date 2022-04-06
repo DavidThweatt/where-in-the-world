@@ -6,7 +6,7 @@ import Country from "./Components/country";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Header />
       <Main />
       <Country />

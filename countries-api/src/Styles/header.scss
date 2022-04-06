@@ -1,11 +1,34 @@
 @import "./variables.scss";
+@import "bulma/css/bulma.css";
 
-.level {
+.header {
   background-color: $DM-DarkBlue;
   height: 8em;
+  width: 100%;
 }
 
-.button {
+.title {
+  @include for-tablet-portrait-up {
+    margin-left: 2em;
+  }
+  @include for-desktop-up {
+    margin-left: 4em;
+  }
+  @include for-big-desktop-up {
+    margin-right: 6em;
+  }
+}
+
+.darkBtn {
   background-color: $DM-DarkBlue;
   border: none;
+  @include for-tablet-portrait-up {
+    margin-right: 3em;
+  }
+  @include for-desktop-up {
+    margin-right: 6em;
+  }
+  @include for-big-desktop-up {
+    margin-right: 9em;
+  }
 }
