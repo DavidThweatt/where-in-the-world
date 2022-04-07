@@ -1,25 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import "../Styles/main.css";
 
 export default function Main() {
-  const [countriesData, setCountriesData] = useState([]);
-
-  const url =
-    "https://restcountries.com/v3.1/region/europe?fields=name,population,region,subregion,capital,currencies,borders";
-
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  }, []);
-
   return (
     <section>
-      <div className="columns">
-        <div className="column">Search</div>
-        <div className="column">Drop down menu</div>
-      </div>
       <div className="columns">
         <div className="column is-one-quarter">
           <div className="card">
