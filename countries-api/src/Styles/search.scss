@@ -1,5 +1,4 @@
-.dropTile {
-}
+@import "../Styles/variables.scss";
 
 .icon-drop-down {
   height: 32px;
@@ -8,5 +7,22 @@
 }
 
 #drop-down-btn {
-  width: 12em;
+  width: 15em;
+  background-color: $DM-DarkBlue;
+  color: white;
+  font-size: 15px;
+  padding: 1.7em 0.5em;
+  border: none;
+}
+
+.dropdown-content {
+  background-color: $DM-DarkBlue;
+  width: 14em;
+}
+
+.input {
+  background-color: $DM-DarkBlue;
+  width: 100%;
+  height: 3em;
+  border: none;
 }
