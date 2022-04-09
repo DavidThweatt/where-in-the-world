@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../Styles/search.css";
 import dropDownDarkMode from "../images/arrow-drop-down-line-white.svg";
 //import dropDownLightMode from "../images/arrow-drop-down-line-dark.svg";
@@ -10,33 +10,37 @@ export default function Search() {
   const [isActive, setIsActive] = useState(false);
   const [region, setRegion] = useState("europe");
   const [country, setCountry] = useState("");
+  const inputRef = useRef(null);
 
   const region_url = `https://restcountries.com/v3.1/region/${region}?fields=name,population,region,subregion,capital,currencies,borders`;
+  const country_url = `https://restcountries.com/v3.1/${country}?fields=name,population,region,subregion,capital,currencies,borders`;
 
   useEffect(() => {
     fetch(region_url)
       .then((response) => response.json())
       .then((data) => setRegionData(data));
-  }, []);
+  }, [region]);
 
   function openCloseDropDownClick(e) {
     setIsActive((prevState) => !prevState);
   }
 
-  function pickRegion(e) {
-    setRegion(e.target.value);
-  }
-
   function pickCountry(e) {
-    setCountry(e.target.value);
+    const { value } = e.target;
+    setCountry(value);
   }
 
   function handleKeypress(e) {
-    e.keyCode === 13 && pickCountry();
+    if(e.keyCode === 13) {
+      fetch(country_url)
+      .then((response) => response.json())
+      .then((data) => setRegionData(data));
+  }
+    }
   }
 
   console.log(region);
-  console.log(country);
+  console.log(regionData);
   return (
     <section>
       <div className="columns">
@@ -44,11 +48,11 @@ export default function Search() {
           <div className="field">
             <p className="control has-icons-left">
               <input
-                className="input"
+                className="input has-text-white"
                 type="text"
-                placeholder="Search for a Country..."
-                value={value}
-                onChange={setCountry}
+                ref={inputRef}
+                value={country}
+                onChange={pickCountry}
                 onKeyPress={handleKeypress}
               />
               <span className="icon is-small is-left pt-2">
@@ -79,37 +83,31 @@ export default function Search() {
               <div className="dropdown-content ">
                 <div
                   className="dropdown-item is-clickable has-text-white"
-                  onClick={pickRegion}
-                  type="text"
-                  value="africa"
+                  onClick={() => setRegion("africa")}
                 >
                   <p>Africa</p>
                 </div>
                 <div
                   className="dropdown-item is-clickable has-text-white"
-                  onClick={pickRegion}
-                  value="america"
+                  onClick={() => setRegion("america")}
                 >
                   <p>America</p>
                 </div>
                 <div
                   className="dropdown-item is-clickable has-text-white"
-                  onClick={pickRegion}
-                  value="asia"
+                  onClick={() => setRegion("asia")}
                 >
-                  <p>Aisa</p>
+                  <p>Asia</p>
                 </div>
                 <div
                   className="dropdown-item is-clickable is-active has-text-white"
-                  onClick={pickRegion}
-                  value="europe"
+                  onClick={() => setRegion("europe")}
                 >
                   <p>Europe</p>
                 </div>
                 <div
                   className="dropdown-item is-clickable has-text-white"
-                  onClick={pickRegion}
-                  value="oceania"
+                  onClick={() => setRegion("oceania")}
                 >
                   <p>Oceania</p>
                 </div>
