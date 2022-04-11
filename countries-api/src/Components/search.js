@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import useLogic from "../Components/logic";
 import "../Styles/search.css";
 import dropDownDarkMode from "../images/arrow-drop-down-line-white.svg";
 //import dropDownLightMode from "../images/arrow-drop-down-line-dark.svg";
@@ -6,41 +7,16 @@ import darkModeSearch from "../images/search-dark-mode.svg";
 //import lightModeSearch from "../images/search-light-mode.svg"
 
 export default function Search() {
-  const [regionData, setRegionData] = useState([]);
-  const [isActive, setIsActive] = useState(false);
-  const [region, setRegion] = useState("europe");
-  const [country, setCountry] = useState("");
-  const inputRef = useRef(null);
+  const {
+    openCloseDropDownClick,
+    pickCountry,
+    handleKeypress,
+    isActive,
+    inputRef,
+    text,
+    pickRegion,
+  } = useLogic();
 
-  const region_url = `https://restcountries.com/v3.1/region/${region}?fields=name,population,region,subregion,capital,currencies,borders`;
-  const country_url = `https://restcountries.com/v3.1/${country}?fields=name,population,region,subregion,capital,currencies,borders`;
-
-  useEffect(() => {
-    fetch(region_url)
-      .then((response) => response.json())
-      .then((data) => setRegionData(data));
-  }, [region]);
-
-  function openCloseDropDownClick(e) {
-    setIsActive((prevState) => !prevState);
-  }
-
-  function pickCountry(e) {
-    const { value } = e.target;
-    setCountry(value);
-  }
-
-  function handleKeypress(e) {
-    if(e.keyCode === 13) {
-      fetch(country_url)
-      .then((response) => response.json())
-      .then((data) => setRegionData(data));
-  }
-    }
-  }
-
-  console.log(region);
-  console.log(regionData);
   return (
     <section>
       <div className="columns">
@@ -51,7 +27,7 @@ export default function Search() {
                 className="input has-text-white"
                 type="text"
                 ref={inputRef}
-                value={country}
+                value={text}
                 onChange={pickCountry}
                 onKeyPress={handleKeypress}
               />
@@ -83,33 +59,33 @@ export default function Search() {
               <div className="dropdown-content ">
                 <div
                   className="dropdown-item is-clickable has-text-white"
-                  onClick={() => setRegion("africa")}
+                  onClick={() => pickRegion("Africa")}
                 >
-                  <p>Africa</p>
+                  {"Africa"}
                 </div>
                 <div
                   className="dropdown-item is-clickable has-text-white"
-                  onClick={() => setRegion("america")}
+                  onClick={() => pickRegion("America")}
                 >
-                  <p>America</p>
+                  {"America"}
                 </div>
                 <div
                   className="dropdown-item is-clickable has-text-white"
-                  onClick={() => setRegion("asia")}
+                  onClick={() => pickRegion("Asia")}
                 >
-                  <p>Asia</p>
+                  {"Asia"}
                 </div>
                 <div
                   className="dropdown-item is-clickable is-active has-text-white"
-                  onClick={() => setRegion("europe")}
+                  onClick={() => pickRegion("Europe")}
                 >
-                  <p>Europe</p>
+                  {"Europe"}
                 </div>
                 <div
                   className="dropdown-item is-clickable has-text-white"
-                  onClick={() => setRegion("oceania")}
+                  onClick={() => pickRegion("Oceania")}
                 >
-                  <p>Oceania</p>
+                  {"Oceania"}
                 </div>
               </div>
             </div>

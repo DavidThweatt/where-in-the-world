@@ -1,1 +1,9 @@
-/*# sourceMappingURL=main.css.map */
+.mainColumn {
+  height: 24em;
+  width: 20em;
+  background-color: hsl(209deg, 23%, 22%);
+}
+
+.mainFont {
+  font-weight: 600;
+}/*# sourceMappingURL=main.css.map */

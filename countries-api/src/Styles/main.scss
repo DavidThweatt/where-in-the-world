@@ -1,1 +1,11 @@
-@use "./variables.scss";
+@import "./variables.scss";
+
+.mainColumn {
+  height: 24em;
+  width: 20em;
+  background-color: $DM-DarkBlue;
+}
+
+.mainFont {
+  font-weight: 600;
+}
