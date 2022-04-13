@@ -1,19 +1,8 @@
-import React, { useEffect } from "react";
-import useLogic from "../Components/logic";
+import React from "react";
 import "../Styles/main.css";
 
 export default function Main(props) {
-  const { regionData } = useLogic();
-
-  // useEffect(() => {
-  //   fetch(region_url)
-  //     .then((response) => response.json())
-  //     .then((data) => setRegionData(data));
-  // }, [region, region_url, setRegionData]);
-
-  console.log(regionData);
-
-  const cardEle = regionData.map((Country, index) => (
+  const cardEle = props.regionData.map((Country, index) => (
     <div key={index} className="mainColumn card mb-6">
       <div className="card-image">
         <figure className="image is-5by3">
@@ -39,6 +28,7 @@ export default function Main(props) {
       </div>
     </div>
   ));
+
   return (
     <section>
       <div className="container px-6 py-2 m-3">{cardEle}</div>

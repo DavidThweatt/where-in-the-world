@@ -1,47 +1,41 @@
-import React, { useState, useEffect, useRef } from "react";
-import useLogic from "../Components/logic";
+import React from "react";
 import "../Styles/search.css";
 import dropDownDarkMode from "../images/arrow-drop-down-line-white.svg";
 //import dropDownLightMode from "../images/arrow-drop-down-line-dark.svg";
 import darkModeSearch from "../images/search-dark-mode.svg";
 //import lightModeSearch from "../images/search-light-mode.svg"
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
-export default function Search() {
-  const {
-    openCloseDropDownClick,
-    pickCountry,
-    handleKeypress,
-    isActive,
-    inputRef,
-    text,
-    pickRegion,
-  } = useLogic();
-
+export default function Search(props) {
   return (
     <section>
       <div className="columns">
         <div className="column mt-5 mb-3 mx-4">
           <div className="field">
-            <p className="control has-icons-left">
-              <input
+            <div className="control has-icons-left">
+              <ReactSearchAutocomplete
                 className="input has-text-white"
                 type="text"
-                ref={inputRef}
-                value={text}
-                onChange={pickCountry}
-                onKeyPress={handleKeypress}
+                value={props.text}
+                onChange={props.pickCountry}
+                onKeyPress={props.handleKeypress}
+                name="Make"
+                items={props.countries}
               />
-              <span className="icon is-small is-left pt-2">
+              {/* <div
+                className="icon is-small is-left pt-2"
+                onClick={() => props.clickSearch(props.text)}
+              >
                 <img src={darkModeSearch} alt="search" />
-              </span>
-            </p>
+              </div> */}
+            </div>
           </div>
         </div>
         <div className="column">
-          <div className={isActive ? "dropdown is-active" : "dropdown"}>
+          <div className={props.isActive ? "dropdown is-active" : "dropdown"}>
             <div className="dropdown-trigger pb-5 pl-4">
               <button
-                onClick={openCloseDropDownClick}
+                onClick={props.openCloseDropDownClick}
                 id="drop-down-btn"
                 className="button is-flex is-justify-content-space-between"
               >
@@ -59,31 +53,31 @@ export default function Search() {
               <div className="dropdown-content ">
                 <div
                   className="dropdown-item is-clickable has-text-white"
-                  onClick={() => pickRegion("Africa")}
+                  onClick={() => props.pickRegion("Africa")}
                 >
                   {"Africa"}
                 </div>
                 <div
                   className="dropdown-item is-clickable has-text-white"
-                  onClick={() => pickRegion("America")}
+                  onClick={() => props.pickRegion("America")}
                 >
                   {"America"}
                 </div>
                 <div
                   className="dropdown-item is-clickable has-text-white"
-                  onClick={() => pickRegion("Asia")}
+                  onClick={() => props.pickRegion("Asia")}
                 >
                   {"Asia"}
                 </div>
                 <div
                   className="dropdown-item is-clickable is-active has-text-white"
-                  onClick={() => pickRegion("Europe")}
+                  onClick={() => props.pickRegion("Europe")}
                 >
                   {"Europe"}
                 </div>
                 <div
                   className="dropdown-item is-clickable has-text-white"
-                  onClick={() => pickRegion("Oceania")}
+                  onClick={() => props.pickRegion("Oceania")}
                 >
                   {"Oceania"}
                 </div>

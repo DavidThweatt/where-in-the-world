@@ -1,22 +1,36 @@
-// import React, { useEffect, useState } from "react";
-// import useLogic from "./Components/logic";
+import React from "react";
 import "../Styles/country.css";
 
 export default function Country(props) {
-  // const {
-  //   openCloseDropDownClick,
-  //   pickCountry,
-  //   handleKeypress,
-  //   regionData,
-  //   countryData,
-  //   isActive,
-  //   inputRef,
-  //   text,
-  // country,
-  //   region,
-  // } = useLogic();
+  console.log(props.countryData);
+  const countryEle = () => {
+    <div>
+      <figure>
+        <img src={props.country.png} alt="country flag" />
+      </figure>
+      <div>
+        <h2></h2>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
+      <div>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
+      <div>
+        <p></p>
+        <div>
+          <button></button>
+          <button></button>
+          <button></button>
+        </div>
+      </div>
+    </div>;
+  };
 
   return <section></section>;
 }
-
-//props.country
