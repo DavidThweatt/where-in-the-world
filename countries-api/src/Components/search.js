@@ -16,11 +16,12 @@ export default function Search(props) {
               <ReactSearchAutocomplete
                 className="input has-text-white"
                 type="text"
-                value={props.text}
-                onChange={props.pickCountry}
+                // value={props.text}
+                // onChange={props.pickCountry}
                 onKeyPress={props.handleKeypress}
-                name="Make"
                 items={props.countries}
+                onSelect={props.handleOnSelect}
+                autoFocus
               />
               {/* <div
                 className="icon is-small is-left pt-2"

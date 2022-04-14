@@ -1,9 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../Styles/main.css";
 
 export default function Main(props) {
   const cardEle = props.regionData.map((Country, index) => (
-    <div key={index} className="mainColumn card mb-6">
+    <div
+      key={index}
+      className="mainColumn card mb-6"
+      onClick={props.handleOnSelect}
+    >
       <div className="card-image">
         <figure className="image is-5by3">
           <img src={Country.flags.png} alt="Flag" />
@@ -31,7 +36,9 @@ export default function Main(props) {
 
   return (
     <section>
-      <div className="container px-6 py-2 m-3">{cardEle}</div>
+      <div className="container px-6 py-2 m-3">
+        <Link to="/Country">{cardEle}</Link>
+      </div>
     </section>
   );
 }

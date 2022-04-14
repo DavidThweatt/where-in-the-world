@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "bulma/css/bulma.css";
 import Header from "./Components/header";
 import Main from "./Components/main";
@@ -17,7 +18,7 @@ function App() {
     inputRef,
     text,
     pickRegion,
-    clickSearch,
+    handleOnSelect,
     countries,
   } = useLogic();
 
@@ -32,10 +33,10 @@ function App() {
         inputRef={inputRef}
         text={text}
         pickRegion={pickRegion}
-        clickSearch={clickSearch}
+        handleOnSelect={handleOnSelect}
         countries={countries}
       />
-      <Main regionData={regionData} />
+      <Main regionData={regionData} handleOnSelect={handleOnSelect} />
       <Country countryData={countryData} />
     </div>
   );
