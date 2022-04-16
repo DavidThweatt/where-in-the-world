@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "bulma/css/bulma.css";
 import Header from "./Components/header";
 import Main from "./Components/main";

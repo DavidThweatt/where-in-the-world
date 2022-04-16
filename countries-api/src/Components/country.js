@@ -13,7 +13,7 @@ export default function Country(props) {
       </figure>
       <div>
         <h2>{Country.name.common}</h2>
-        <p>Native Name: {Country.name.nativeName.ukr.common}</p>
+        {/* <p>Native Name: {Country.name.nativeName}</p> */}
         <p>Polpulation: {Country.population}</p>
         <p>Region: {Country.region}</p>
         <p>Sub Region: {Country.subregion}</p>
@@ -21,19 +21,45 @@ export default function Country(props) {
       </div>
       <div>
         <p>Top Level Domain: {Country.topLevelDomain}</p>
-        <p>currencies: {Country.currencies.UAH.name}</p>
-        <p>Languages: {Country.languages.ukr}</p>
+        {/* <p>currencies: {Country.currencies.currency}</p> 
+        <p>Languages: {Country.languages.name}</p> */}
       </div>
       <div>
-        <p>Boarder Countries: {Country.borders}</p>
-        <div>
-          <button>{}</button>
-          <button>{}</button>
-          <button>{}</button>
-        </div>
+        <p>Boarder Countries </p>
       </div>
     </div>
   ));
 
-  return <section>{countryEle}</section>;
+  // const currencies = props.countryData.Country.currency.map(
+  //   (currency, index) => (
+  //     <div key={index}>
+  //       <button>{currency}</button>
+  //     </div>
+  //   )
+  // );
+
+  // const languages = props.countryData.Country.languages.map(
+  //   (language, index) => (
+  //     <div key={index}>
+  //       <button>{language}</button>
+  //     </div>
+  //   )
+  // );
+
+  // const boarders = props.countryData.Country.borders.map(
+  //   (boarderCountry, index) => (
+  //     <div key={index}>
+  //       <button>{boarderCountry}</button>
+  //     </div>
+  //   )
+  // );
+
+  return (
+    <section>
+      {countryEle}
+      {/* {currencies}
+      {languages}
+      {boarders} */}
+    </section>
+  );
 }

@@ -6,8 +6,8 @@ export default function useLogic() {
   const [isActive, setIsActive] = useState(false);
   const [region, setRegion] = useState("europe");
   const [country, setCountry] = useState("");
-  //const inputRef = useRef(null);
-  //const [text, setText] = useState("");
+  const inputRef = useRef(null);
+  const [text, setText] = useState("");
 
   const countries = [
     { id: 0, name: "Afghanistan" },
@@ -208,9 +208,10 @@ export default function useLogic() {
   ];
 
   const region_url = `https://restcountries.com/v3.1/region/${region}?fields=name,population,region,subregion,capital,currencies,flags,numericCode,borders,languages`;
-  const country_url = `https://restcountries.com/v3.1/name/${country}?fields=name,population,region,subregion,capital,currencies,flags,numericCode,borders,languages`;
 
   useEffect(() => {
+    const country_url = `https://restcountries.com/v3.1/name/${country.name}?fields=name,population,region,subregion,capital,currencies,flags,numericCode,borders,languages`;
+
     if (country == null || country === "") {
       return;
     }
@@ -218,7 +219,7 @@ export default function useLogic() {
     fetch(country_url)
       .then((response) => response.json())
       .then((data) => setCountryData(data));
-  }, [country, country_url]);
+  }, [country]);
 
   useEffect(() => {
     fetch(region_url)
@@ -230,42 +231,49 @@ export default function useLogic() {
     setIsActive((prevState) => !prevState);
   }
 
-  // function pickCountry(e) {
-  //   const { value } = e.currentTarget;
-  //   setText(value);
-  // }
-
-  function handleOnSelect(item) {
-    setCountry(item.name);
+  function pickCountry(e) {
+    const { value } = e.currentTarget;
+    setText(value);
   }
+
+  // function handleOnSelect(item) {
+  //   setCountry(item);
+  // }
 
   function pickRegion(n) {
     setRegion(n);
   }
 
-  function handleKeypress(item, e) {
+  function handleKeypress(e) {
     if (e.charCode === 13) {
-      setCountry(item.name);
+      const filteredName = countries.filter((x) => {
+        return x.name.toLowerCase().includes(text.toLowerCase());
+      });
+      setCountry(filteredName);
     }
   }
 
-  console.log(country);
+  // function filterFunction() {
 
+  // }
+  console.log(country);
+  console.log(region);
+  console.log(text);
   return {
     openCloseDropDownClick,
-    //pickCountry,
+    pickCountry,
     handleKeypress,
     regionData,
     countryData,
     isActive,
-    //inputRef,
-    //text,
+    inputRef,
+    text,
     country,
     region,
     setRegion,
     pickRegion,
     region_url,
-    handleOnSelect,
+    // handleOnSelect,
     countries,
   };
 }

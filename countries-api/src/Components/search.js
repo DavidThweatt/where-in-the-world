@@ -4,7 +4,7 @@ import dropDownDarkMode from "../images/arrow-drop-down-line-white.svg";
 //import dropDownLightMode from "../images/arrow-drop-down-line-dark.svg";
 import darkModeSearch from "../images/search-dark-mode.svg";
 //import lightModeSearch from "../images/search-light-mode.svg"
-import { ReactSearchAutocomplete } from "react-search-autocomplete";
+// import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 export default function Search(props) {
   return (
@@ -13,22 +13,22 @@ export default function Search(props) {
         <div className="column mt-5 mb-3 mx-4">
           <div className="field">
             <div className="control has-icons-left">
-              <ReactSearchAutocomplete
+              <input
                 className="input has-text-white"
                 type="text"
-                // value={props.text}
-                // onChange={props.pickCountry}
+                value={props.text}
+                onChange={props.pickCountry}
                 onKeyPress={props.handleKeypress}
-                items={props.countries}
-                onSelect={props.handleOnSelect}
-                autoFocus
+                // items={props.countries}
+                // onSelect={props.handleOnSelect}
+                // autoFocus
               />
-              {/* <div
+              <div
                 className="icon is-small is-left pt-2"
                 onClick={() => props.clickSearch(props.text)}
               >
                 <img src={darkModeSearch} alt="search" />
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
