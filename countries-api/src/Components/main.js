@@ -7,7 +7,7 @@ export default function Main(props) {
     <div
       key={index}
       className="mainColumn card mb-6"
-      onClick={props.handleOnSelect}
+      onClick={() => props.setCountry(Country)}
     >
       <div className="card-image">
         <figure className="image is-5by3">
@@ -36,9 +36,7 @@ export default function Main(props) {
 
   return (
     <section>
-      <div className="container px-6 py-2 m-3">
-        <Link to="/Country">{cardEle}</Link>
-      </div>
+      <div className="container px-6 py-2 m-3">{cardEle}</div>
     </section>
   );
 }

@@ -5,6 +5,7 @@ import Main from "./Components/main";
 import Country from "./Components/country";
 import Search from "./Components/search";
 import useLogic from "./Components/logic";
+import { Outlet } from "react-router-dom";
 
 function App() {
   const {
@@ -19,6 +20,8 @@ function App() {
     pickRegion,
     handleOnSelect,
     countries,
+    setCountry,
+    country,
   } = useLogic();
 
   return (
@@ -35,8 +38,9 @@ function App() {
         handleOnSelect={handleOnSelect}
         countries={countries}
       />
-      <Main regionData={regionData} handleOnSelect={handleOnSelect} />
-      <Country countryData={countryData} />
+      <Main regionData={regionData} setCountry={setCountry} />
+      <Country countryData={countryData} country={country} />
+      <Outlet />
     </div>
   );
 }

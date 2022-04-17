@@ -2,7 +2,9 @@ import React from "react";
 import "../Styles/country.css";
 
 export default function Country(props) {
+  console.log(props.country);
   console.log(props.countryData);
+
   const countryEle = props.countryData.map((Country, index) => (
     <div key={index}>
       <div>

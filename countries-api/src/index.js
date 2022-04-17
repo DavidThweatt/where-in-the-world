@@ -8,8 +8,9 @@ import "./Styles/index.css";
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/Country" element={<Country />} />
+      <Route path="/" element={<App />}>
+        <Route path="/Country" element={<Country />} />
+      </Route>
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")

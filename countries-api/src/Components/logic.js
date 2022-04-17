@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function useLogic() {
   const [regionData, setRegionData] = useState([]);
@@ -208,14 +209,12 @@ export default function useLogic() {
   ];
 
   const region_url = `https://restcountries.com/v3.1/region/${region}?fields=name,population,region,subregion,capital,currencies,flags,numericCode,borders,languages`;
+  const country_url = `https://restcountries.com/v3.1/name/${country}?fields=name,population,region,subregion,capital,currencies,flags,numericCode,borders,languages`;
 
   useEffect(() => {
-    const country_url = `https://restcountries.com/v3.1/name/${country.name}?fields=name,population,region,subregion,capital,currencies,flags,numericCode,borders,languages`;
-
-    if (country == null || country === "") {
+    if (country === "") {
       return;
     }
-
     fetch(country_url)
       .then((response) => response.json())
       .then((data) => setCountryData(data));
@@ -236,29 +235,21 @@ export default function useLogic() {
     setText(value);
   }
 
-  // function handleOnSelect(item) {
-  //   setCountry(item);
-  // }
-
   function pickRegion(n) {
     setRegion(n);
   }
 
   function handleKeypress(e) {
     if (e.charCode === 13) {
-      const filteredName = countries.filter((x) => {
-        return x.name.toLowerCase().includes(text.toLowerCase());
+      countries.filter((x) => {
+        x.name.toLowerCase().includes(text.toLowerCase()) && setCountry(text);
       });
-      setCountry(filteredName);
+      
     }
   }
 
-  // function filterFunction() {
+  function clickSearch(x) {}
 
-  // }
-  console.log(country);
-  console.log(region);
-  console.log(text);
   return {
     openCloseDropDownClick,
     pickCountry,
@@ -273,7 +264,8 @@ export default function useLogic() {
     setRegion,
     pickRegion,
     region_url,
-    // handleOnSelect,
     countries,
+    clickSearch,
+    setCountry,
   };
 }
