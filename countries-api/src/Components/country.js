@@ -1,14 +1,16 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
 import "../Styles/country.css";
 
 export default function Country(props) {
-  console.log(props.country);
-  console.log(props.countryData);
+  const params = useParams();
 
   const countryEle = props.countryData.map((Country, index) => (
     <div key={index}>
       <div>
-        <button>Back</button>
+        <Link to="/">
+          <button>Back</button>
+        </Link>
       </div>
       <figure>
         <img src={Country.flags.png} alt="country flag" />

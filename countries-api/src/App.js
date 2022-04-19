@@ -3,9 +3,8 @@ import "bulma/css/bulma.css";
 import Header from "./Components/header";
 import Main from "./Components/main";
 import Country from "./Components/country";
-import Search from "./Components/search";
 import useLogic from "./Components/logic";
-import { Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const {
@@ -21,26 +20,36 @@ function App() {
     handleOnSelect,
     countries,
     setCountry,
-    country,
   } = useLogic();
 
   return (
     <div>
       <Header />
-      <Search
-        openCloseDropDownClick={openCloseDropDownClick}
-        pickCountry={pickCountry}
-        handleKeypress={handleKeypress}
-        isActive={isActive}
-        inputRef={inputRef}
-        text={text}
-        pickRegion={pickRegion}
-        handleOnSelect={handleOnSelect}
-        countries={countries}
-      />
-      <Main regionData={regionData} setCountry={setCountry} />
-      <Country countryData={countryData} country={country} />
-      <Outlet />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Main
+              regionData={regionData}
+              setCountry={setCountry}
+              countryData={countryData}
+              openCloseDropDownClick={openCloseDropDownClick}
+              pickCountry={pickCountry}
+              handleKeypress={handleKeypress}
+              isActive={isActive}
+              inputRef={inputRef}
+              text={text}
+              pickRegion={pickRegion}
+              handleOnSelect={handleOnSelect}
+              countries={countries}
+            />
+          }
+        />
+        <Route
+          path="/:country"
+          element={<Country countryData={countryData} />}
+        />
+      </Routes>
     </div>
   );
 }
