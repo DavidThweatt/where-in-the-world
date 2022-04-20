@@ -1,10 +1,8 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../Styles/country.css";
 
 export default function Country(props) {
-  const params = useParams();
-
   const countryEle = props.countryData.map((Country, index) => (
     <div key={index}>
       <div>
@@ -18,7 +16,7 @@ export default function Country(props) {
       <div>
         <h2>{Country.name.common}</h2>
         {/* <p>Native Name: {Country.name.nativeName}</p> */}
-        <p>Polpulation: {Country.population}</p>
+        <p>Population: {Country.population}</p>
         <p>Region: {Country.region}</p>
         <p>Sub Region: {Country.subregion}</p>
         <p>Capital: {Country.capital}</p>

@@ -1,27 +1,27 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import countryList from "./Countries";
 
 export default function useLogic() {
-  const [regionData, setRegionData] = useState([]);
   const [countryData, setCountryData] = useState([]);
+  const [regionData, setRegionData] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const [region, setRegion] = useState("europe");
-  const [country, setCountry] = useState("");
+  const [countryCode, setCountryCode] = useState("");
   const inputRef = useRef(null);
   const [text, setText] = useState("");
 
-  const region_url = `https://restcountries.com/v3.1/region/${region}?fields=name,population,region,subregion,capital,currencies,flags,numericCode,borders,languages`;
-  const country_url = `https://restcountries.com/v3.1/name/${country}?fields=name,population,region,subregion,capital,currencies,flags,numericCode,borders,languages`;
+  const region_url = `https://restcountries.com/v3.1/region/${region}?fields=name,cca2,population,region,subregion,capital,currencies,flags,numericCode,borders,languages`;
+  const country_url = `https://restcountries.com/v3.1/alpha/${countryCode}?fields=name,cca2,population,region,subregion,capital,currencies,flags,numericCode,borders,languages`;
 
   useEffect(() => {
-    if (country === "") {
+    if (countryCode === "" || countryCode === null) {
       return;
     }
     fetch(country_url)
       .then((response) => response.json())
       .then((data) => setCountryData(data));
-  }, [country, country_url]);
+  }, [countryCode, country_url]);
 
   useEffect(() => {
     fetch(region_url)
@@ -44,29 +44,30 @@ export default function useLogic() {
 
   function handleKeypress(e) {
     if (e.charCode === 13) {
-      countryList.filter((x) => {
-        x.toLowerCase().includes(text.toLowerCase()) && setCountry(text);
-      });
+      const foundCountry = countryList.find(
+        (x) => x.name.toLowerCase() === text.toLowerCase()
+      );
+      setCountryCode(foundCountry.code);
     }
   }
-
   function clickSearch(x) {}
-
+  console.log(countryData);
+  console.log(countryCode);
   return {
     openCloseDropDownClick,
     pickCountry,
     handleKeypress,
     regionData,
-    countryData,
     isActive,
     inputRef,
     text,
-    country,
+    countryCode,
     region,
     setRegion,
     pickRegion,
     region_url,
     clickSearch,
-    setCountry,
+    setCountryCode,
+    countryData,
   };
 }

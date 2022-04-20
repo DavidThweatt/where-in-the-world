@@ -19,7 +19,6 @@ function App() {
     pickRegion,
     handleOnSelect,
     countries,
-    setCountry,
   } = useLogic();
 
   return (
@@ -31,8 +30,6 @@ function App() {
           element={
             <Main
               regionData={regionData}
-              setCountry={setCountry}
-              countryData={countryData}
               openCloseDropDownClick={openCloseDropDownClick}
               pickCountry={pickCountry}
               handleKeypress={handleKeypress}

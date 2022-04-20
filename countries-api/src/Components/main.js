@@ -7,6 +7,7 @@ import "../Styles/search.css";
 import dropDownDarkMode from "../images/arrow-drop-down-line-white.svg";
 //import dropDownLightMode from "../images/arrow-drop-down-line-dark.svg";
 import darkModeSearch from "../images/search-dark-mode.svg";
+import Country from "./country";
 //import lightModeSearch from "../images/search-light-mode.svg"
 
 export default function Main(props) {
@@ -54,7 +55,9 @@ export default function Main(props) {
                   onKeyPress={props.handleKeypress}
                 />
                 <div className="icon is-small is-left pt-2">
-                  <img src={darkModeSearch} alt="search" />
+                  <Link to={`/${Country}`}>
+                    <img src={darkModeSearch} alt="search" />
+                  </Link>
                 </div>
               </div>
             </div>
