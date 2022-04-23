@@ -12,7 +12,6 @@ function App() {
     pickCountry,
     handleKeypress,
     regionData,
-    countryData,
     isActive,
     inputRef,
     text,
@@ -42,10 +41,7 @@ function App() {
             />
           }
         />
-        <Route
-          path="/:country"
-          element={<Country countryData={countryData} />}
-        />
+        <Route path="/:countryCode" element={<Country />} />
       </Routes>
     </div>
   );

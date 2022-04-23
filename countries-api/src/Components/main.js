@@ -12,7 +12,7 @@ import Country from "./country";
 
 export default function Main(props) {
   const cardEle = props.regionData.map((Country, index) => (
-    <Link key={index} to={`/${Country}`}>
+    <Link key={index} to={`/${Country.cca2}`}>
       <div className="mainColumn card mb-6">
         <div className="card-image">
           <figure className="image is-5by3">
