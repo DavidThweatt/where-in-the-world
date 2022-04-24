@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../Styles/country.css";
 
+import DM_arrow from "../images/DM-arrow-left-line.svg";
+
 export default function Country() {
   const [countryData, setCountryData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -28,20 +30,23 @@ export default function Country() {
   }, [countryCode, country_url]);
 
   const countryEle = (
-    <div>
-      <div>
+    <div className="container p-5">
+      <div className="pt2 pb-6">
         <Link to="/">
-          <button>Back</button>
+          <button className="dm_btn pr-4 button is-small">
+            <img className="pl-1 pr-2" src={DM_arrow} alt="arrow" />
+            Back
+          </button>
         </Link>
       </div>
-      <figure>
+      <figure className="image is-5by3">
         <img
           src={countryData.flags && countryData.flags.png}
           alt="country flag"
         />
       </figure>
       <div>
-        <h2>{countryData.name && countryData.name.common}</h2>
+        <h2>Common Name: {countryData.name && countryData.name.common}</h2>
         <p>Official Name: {countryData.name && countryData.name.official}</p>
         <p>Population: {countryData.population}</p>
         <p>Region: {countryData.region}</p>
@@ -61,9 +66,13 @@ export default function Country() {
       </div>
       <div>
         <p>Boarder Countries:</p>
-        <div>
+        <div className="columns">
           {countryData.borders &&
-            countryData.borders.map((c, i) => <button key={i}>{c[i]}</button>)}
+            countryData.borders.map((c, i) => (
+              <div key={i} className="cty_btn column is-one-third">
+                <button className="dm_btn button is-small ">{c}</button>
+              </div>
+            ))}
         </div>
       </div>
     </div>

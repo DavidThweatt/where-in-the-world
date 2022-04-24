@@ -1,1 +1,12 @@
-@use "./variables.scss";
+@import "./variables.scss";
+
+.dm_btn {
+  background-color: $DM-DarkBlue;
+  color: White;
+  border: none;
+  border-radius: 5%;
+}
+
+.cty-btn {
+  width: 10px;
+}
