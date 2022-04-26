@@ -18,6 +18,7 @@ function App() {
     pickRegion,
     handleOnSelect,
     countries,
+    all,
   } = useLogic();
 
   return (
@@ -38,6 +39,7 @@ function App() {
               pickRegion={pickRegion}
               handleOnSelect={handleOnSelect}
               countries={countries}
+              all={all}
             />
           }
         />

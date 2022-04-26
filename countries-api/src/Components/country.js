@@ -8,6 +8,7 @@ export default function Country() {
   const [countryData, setCountryData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
+  const [boarderCounties, setBoarderCounties] = useState([]);
 
   const { countryCode } = useParams();
 
@@ -27,7 +28,20 @@ export default function Country() {
       .finally(() => {
         setLoading(false);
       });
+    setBoarderCounties([]);
   }, [countryCode, country_url]);
+
+  useEffect(() => {
+    countryData.borders &&
+      countryData.borders.map((c, i) =>
+        fetch(`https://restcountries.com/v3.1/alpha/${c}?fields=name,cca2`)
+          .then((response) => response.json())
+          .then((data) => {
+            const border = data;
+            setBoarderCounties((prevState) => [...prevState, border]);
+          })
+      );
+  }, [countryData]);
 
   const countryEle = (
     <div className="container p-5">
@@ -66,19 +80,20 @@ export default function Country() {
       </div>
       <div>
         <p>Boarder Countries:</p>
-        <div className="columns">
-          {countryData.borders &&
-            countryData.borders.map((c, i) => (
-              <div key={i} className="cty_btn column is-one-third">
-                <button className="dm_btn button is-small ">{c}</button>
-              </div>
-            ))}
+        <div className="columns columns_btns">
+          {boarderCounties.map((c, i) => (
+            <div key={i} className="cty_btn column is-mobile is-one-third">
+              <Link to={`/${c.cca2}`}>
+                <button className="dm_btn button is-small ">
+                  {c.name.common}
+                </button>
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
-
-  console.log(countryData);
 
   if (loading) {
     return <p>Data is loading...</p>;
