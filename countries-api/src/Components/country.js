@@ -59,30 +59,76 @@ export default function Country() {
           alt="country flag"
         />
       </figure>
-      <div>
-        <h2>Common Name: {countryData.name && countryData.name.common}</h2>
-        <p>Official Name: {countryData.name && countryData.name.official}</p>
-        <p>Population: {countryData.population}</p>
-        <p>Region: {countryData.region}</p>
-        <p>Sub Region: {countryData.subregion}</p>
-        <p>Capital: {countryData.capital}</p>
-      </div>
-      <div>
-        <p>Top Level Domain: {countryData.tld}</p>
-        <p>
-          Currencies:
-          {countryData.currencies && Object.keys(countryData.currencies)}
+      <div className="has-text-white">
+        <h2 className="is-size-4 has-text-weight-bold pt-6 pb-5">
+          {countryData.name && countryData.name.common}
+        </h2>
+        <p className="pb-3">
+          <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+            Official Name:
+          </span>
+          <span className="pl-2">
+            {countryData.name && countryData.name.official}
+          </span>
         </p>
-        <p>
-          Languages:
-          {countryData.languages && Object.keys(countryData.languages)}
+        <p className="pb-3">
+          <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+            Population:
+          </span>
+          <span className="pl-2">{countryData.population}</span>
+        </p>
+        <p className="pb-3">
+          <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+            Region:
+          </span>
+          <span className="pl-2">{countryData.region}</span>
+        </p>
+        <p className="pb-3">
+          <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+            Sub Region:
+          </span>
+          <span className="pl-2">{countryData.subregion}</span>
+        </p>
+        <p className="pb-3">
+          <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+            Capital:
+          </span>
+          <span className="pl-2">{countryData.capital}</span>
         </p>
       </div>
-      <div>
-        <p>Boarder Countries:</p>
+      <div className="pt-5 has-text-white">
+        <p className="pb-3">
+          <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+            Top Level Domain:
+          </span>
+          <span className="pl-2">{countryData.tld}</span>
+        </p>
+        <p className="pb-3">
+          <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+            Currencies:
+          </span>
+          <span className="pl-2">
+            {countryData.currencies && Object.keys(countryData.currencies)}
+          </span>
+        </p>
+        <p className="pb-3">
+          <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+            Languages:
+          </span>
+          <span className="pl-3">
+            {countryData.languages && Object.keys(countryData.languages)}
+          </span>
+        </p>
+      </div>
+      <div className="pt-5 has-text-white">
+        <p className="pb-3">
+          <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+            Boarder Countries:
+          </span>
+        </p>
         <div className="columns columns_btns">
           {boarderCounties.map((c, i) => (
-            <div key={i} className="cty_btn column is-mobile is-one-third">
+            <div key={i} className="cty_btn column is-one-third">
               <Link to={`/${c.cca2}`}>
                 <button className="dm_btn button is-small ">
                   {c.name.common}

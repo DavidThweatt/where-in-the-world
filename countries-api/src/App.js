@@ -10,8 +10,8 @@ function App() {
   const {
     openCloseDropDownClick,
     pickCountry,
-    handleKeypress,
-    regionData,
+    handleChange,
+    displayData,
     isActive,
     inputRef,
     text,
@@ -19,6 +19,8 @@ function App() {
     handleOnSelect,
     countries,
     all,
+    findRegion,
+    getAll,
   } = useLogic();
 
   return (
@@ -29,10 +31,10 @@ function App() {
           path="/"
           element={
             <Main
-              regionData={regionData}
+              displayData={displayData}
               openCloseDropDownClick={openCloseDropDownClick}
               pickCountry={pickCountry}
-              handleKeypress={handleKeypress}
+              handleChange={handleChange}
               isActive={isActive}
               inputRef={inputRef}
               text={text}
@@ -40,6 +42,8 @@ function App() {
               handleOnSelect={handleOnSelect}
               countries={countries}
               all={all}
+              findRegion={findRegion}
+              getAll={getAll}
             />
           }
         />

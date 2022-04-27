@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 export default function useLogic() {
-  const [regionData, setRegionData] = useState([]);
+  const [displayData, setDisplayData] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const [region, setRegion] = useState("");
   const [all, setAll] = useState([]);
@@ -15,48 +15,56 @@ export default function useLogic() {
     fetch(all_countries)
       .then((response) => response.json())
       .then((data) => setAll(data));
-  }, [all, all_countries]);
+    setDisplayData(all);
+  }, []);
 
   useEffect(() => {
-    fetch(region_url)
-      .then((response) => response.json())
-      .then((data) => setRegionData(data));
-  }, [region, region_url]);
+    setDisplayData(all);
+  }, [all]);
+
+  useEffect(() => {
+    if (region === "") return;
+
+    const foundRegion = all.filter(
+      (x) => x.region.toLowerCase() === region.toLowerCase()
+    );
+    setDisplayData(foundRegion);
+  }, [region]);
 
   function openCloseDropDownClick(e) {
     setIsActive((prevState) => !prevState);
   }
 
-  function pickCountry(e) {
+  function handleChange(e) {
     const { value } = e.currentTarget;
     setText(value);
+
+    const foundCountry = all.filter((x) =>
+      x.name.common.toLowerCase().includes(text.toLowerCase())
+    );
+    setDisplayData(foundCountry);
   }
 
-  function pickRegion(n) {
-    setRegion(n);
+  function findRegion(r) {
+    setRegion(r);
   }
 
-  // function handleKeypress(e) {
-  //   if (e.charCode === 13) {
-  //     const foundCountry = countryList.find(
-  //       (x) => x.name.toLowerCase() === text.toLowerCase()
-  //     );
-  //     setCountryCode(foundCountry.code);
-  //   }
-  // }
+  function getAll() {
+    setDisplayData(all);
+  }
 
   return {
     openCloseDropDownClick,
-    pickCountry,
-    // handleKeypress,
-    regionData,
+    handleChange,
+    displayData,
     isActive,
     inputRef,
     text,
     region,
     setRegion,
-    pickRegion,
     region_url,
     all,
+    findRegion,
+    getAll,
   };
 }

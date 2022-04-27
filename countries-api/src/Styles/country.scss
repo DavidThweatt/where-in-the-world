@@ -9,8 +9,10 @@
 
 .cty-btn {
   width: 10px;
+  @include for-phone-only;
 }
 
 .columns_btns {
   width: 80%;
+  @include for-phone-only;
 }

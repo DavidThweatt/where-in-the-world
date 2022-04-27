@@ -11,7 +11,7 @@ import Country from "./country";
 //import lightModeSearch from "../images/search-light-mode.svg"
 
 export default function Main(props) {
-  const cardEle = props.all.map((Country, index) => (
+  const cardEle = props.displayData.map((Country, index) => (
     <Link key={index} to={`/${Country.cca2}`}>
       <div className="mainColumn card mb-6">
         <div className="card-image">
@@ -24,15 +24,15 @@ export default function Main(props) {
             {Country.name.common}
           </h2>
           <p className="px-5 pb-2 m-0">
-            <strong className="mainFont has-text-white">Population: </strong>
-            {Country.population}
+            <span className="mainFont has-text-white">Population: </span>
+            {Country.population.toLocaleString("en-US")}
           </p>
           <p className="px-5 pb-2 m-0">
-            <strong className="mainFont has-text-white">Region: </strong>
+            <span className="mainFont has-text-white">Region: </span>
             {Country.region}
           </p>
           <p className="px-5 pb-2 m-0">
-            <strong className="mainFont has-text-white">Capital: </strong>
+            <span className="mainFont has-text-white">Capital: </span>
             {Country.capital}
           </p>
         </div>
@@ -40,34 +40,34 @@ export default function Main(props) {
     </Link>
   ));
 
-  const cardEleRegion = props.regionData.map((Country, index) => (
-    <Link key={index} to={`/${Country.cca2}`}>
-      <div className="mainColumn card mb-6">
-        <div className="card-image">
-          <figure className="image is-5by3">
-            <img src={Country.flags.png} alt="Flag" />
-          </figure>
-        </div>
-        <div className="content has-text-white pb-0">
-          <h2 className="has-text-white has-text-weight-bold is-size-4 p-5 m-0">
-            {Country.name.common}
-          </h2>
-          <p className="px-5 pb-2 m-0">
-            <strong className="mainFont has-text-white">Population: </strong>
-            {Country.population}
-          </p>
-          <p className="px-5 pb-2 m-0">
-            <strong className="mainFont has-text-white">Region: </strong>
-            {Country.region}
-          </p>
-          <p className="px-5 pb-2 m-0">
-            <strong className="mainFont has-text-white">Capital: </strong>
-            {Country.capital}
-          </p>
-        </div>
-      </div>
-    </Link>
-  ));
+  // const cardEleRegion = props.regionData.map((Country, index) => (
+  //   <Link key={index} to={`/${Country.cca2}`}>
+  //     <div className="mainColumn card mb-6">
+  //       <div className="card-image">
+  //         <figure className="image is-5by3">
+  //           <img src={Country.flags.png} alt="Flag" />
+  //         </figure>
+  //       </div>
+  //       <div className="content has-text-white pb-0">
+  //         <h2 className="has-text-white has-text-weight-bold is-size-4 p-5 m-0">
+  //           {Country.name.common}
+  //         </h2>
+  //         <p className="px-5 pb-2 m-0">
+  //           <strong className="mainFont has-text-white">Population: </strong>
+  //           {Country.population}
+  //         </p>
+  //         <p className="px-5 pb-2 m-0">
+  //           <strong className="mainFont has-text-white">Region: </strong>
+  //           {Country.region}
+  //         </p>
+  //         <p className="px-5 pb-2 m-0">
+  //           <strong className="mainFont has-text-white">Capital: </strong>
+  //           {Country.capital}
+  //         </p>
+  //       </div>
+  //     </div>
+  //   </Link>
+  // ));
 
   return (
     <div>
@@ -80,8 +80,7 @@ export default function Main(props) {
                   className="input has-text-white"
                   type="text"
                   value={props.text}
-                  onChange={props.pickCountry}
-                  onKeyPress={props.handleKeypress}
+                  onChange={props.handleChange}
                 />
                 <div className="icon is-small is-left pt-2">
                   <Link to={`/${Country}`}>
@@ -113,31 +112,37 @@ export default function Main(props) {
                 <div className="dropdown-content ">
                   <div
                     className="dropdown-item is-clickable has-text-white"
-                    onClick={() => props.pickRegion("Africa")}
+                    onClick={() => props.getAll("All")}
+                  >
+                    {"All"}
+                  </div>
+                  <div
+                    className="dropdown-item is-clickable has-text-white"
+                    onClick={() => props.findRegion("Africa")}
                   >
                     {"Africa"}
                   </div>
                   <div
                     className="dropdown-item is-clickable has-text-white"
-                    onClick={() => props.pickRegion("America")}
+                    onClick={() => props.findRegion("Americas")}
                   >
-                    {"America"}
+                    {"Americas"}
                   </div>
                   <div
                     className="dropdown-item is-clickable has-text-white"
-                    onClick={() => props.pickRegion("Asia")}
+                    onClick={() => props.findRegion("Asia")}
                   >
                     {"Asia"}
                   </div>
                   <div
                     className="dropdown-item is-clickable is-active has-text-white"
-                    onClick={() => props.pickRegion("Europe")}
+                    onClick={() => props.findRegion("Europe")}
                   >
                     {"Europe"}
                   </div>
                   <div
                     className="dropdown-item is-clickable has-text-white"
-                    onClick={() => props.pickRegion("Oceania")}
+                    onClick={() => props.findRegion("Oceania")}
                   >
                     {"Oceania"}
                   </div>
@@ -148,7 +153,7 @@ export default function Main(props) {
         </div>
       </div>
       <div className="container px-6 py-2 m-3">
-        {cardEleRegion}
+        {/* {cardEleRegion} */}
         {cardEle}
       </div>
     </div>
