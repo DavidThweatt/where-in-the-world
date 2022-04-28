@@ -6,7 +6,8 @@
 
 #drop-down-btn {
   width: 15em;
-  background-color: hsl(209deg, 23%, 22%);
+  background-color: white;
+  color: hsl(200deg, 15%, 8%);
   color: white;
   font-size: 15px;
   padding: 1.7em 0.5em;
@@ -14,12 +15,14 @@
 }
 
 .dropdown-content {
-  background-color: hsl(209deg, 23%, 22%);
+  background-color: white;
+  color: hsl(200deg, 15%, 8%);
   width: 14em;
 }
 
 .input {
-  background-color: hsl(209deg, 23%, 22%);
+  background-color: white;
+  color: hsl(200deg, 15%, 8%);
   width: 100%;
   height: 3em;
   border: none;

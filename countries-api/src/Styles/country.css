@@ -1,14 +1,26 @@
-.dm_btn {
-  background-color: hsl(209deg, 23%, 22%);
-  color: White;
+.country_info {
+  background-color: white;
+  color: hsl(200deg, 15%, 8%);
+}
+
+.dm_btn, .boarders_btns {
+  background-color: white;
+  color: hsl(200deg, 15%, 8%);
   border: none;
   border-radius: 5%;
+  box-shadow: 0px 0px 1.2px -7px rgba(0, 0, 0, 0.087), 0px 0px 2.8px -7px rgba(0, 0, 0, 0.125), 0px 0px 5.3px -7px rgba(0, 0, 0, 0.155), 0px 0px 9.4px -7px rgba(0, 0, 0, 0.185), 0px 0px 17.5px -7px rgba(0, 0, 0, 0.223), 0px 0px 42px -7px rgba(0, 0, 0, 0.31);
 }
 
-.cty-btn {
-  width: 10px;
+.boarder_country_columns_div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.columns_btns {
-  width: 80%;
+.boarders_btns {
+  width: 100px;
+}
+
+.flag {
+  box-shadow: 0px 0px 1.2px -7px rgba(0, 0, 0, 0.087), 0px 0px 2.8px -7px rgba(0, 0, 0, 0.125), 0px 0px 5.3px -7px rgba(0, 0, 0, 0.155), 0px 0px 9.4px -7px rgba(0, 0, 0, 0.185), 0px 0px 17.5px -7px rgba(0, 0, 0, 0.223), 0px 0px 42px -7px rgba(0, 0, 0, 0.31);
 }/*# sourceMappingURL=country.css.map */

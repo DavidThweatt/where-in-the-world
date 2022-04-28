@@ -21,11 +21,13 @@ function App() {
     all,
     findRegion,
     getAll,
+    toggleTheme,
+    theme,
   } = useLogic();
 
   return (
     <div>
-      <Header />
+      <Header toggleTheme={toggleTheme} theme={theme} />
       <Routes>
         <Route
           path="/"
@@ -44,10 +46,11 @@ function App() {
               all={all}
               findRegion={findRegion}
               getAll={getAll}
+              theme={theme}
             />
           }
         />
-        <Route path="/:countryCode" element={<Country />} />
+        <Route path="/:countryCode" element={<Country theme={theme} />} />
       </Routes>
     </div>
   );

@@ -7,10 +7,15 @@ export default function useLogic() {
   const [all, setAll] = useState([]);
   const inputRef = useRef(null);
   const [text, setText] = useState("");
+  const [theme, setTheme] = useState("Dark");
 
   const region_url = `https://restcountries.com/v3.1/region/${region}?fields=name,cca2,population,region,subregion,capital,currencies,flags,borders,languages`;
   const all_countries = `https://restcountries.com/v3.1/all?fields=name,cca2,population,region,capital,flags`;
 
+  function toggleTheme() {
+    setTheme((prevTheme) => (prevTheme === "Dark" ? "Light" : "Dark"));
+  }
+  console.log(theme);
   useEffect(() => {
     fetch(all_countries)
       .then((response) => response.json())
@@ -66,5 +71,7 @@ export default function useLogic() {
     all,
     findRegion,
     getAll,
+    theme,
+    toggleTheme,
   };
 }

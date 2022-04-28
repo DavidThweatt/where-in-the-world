@@ -17,6 +17,35 @@ $LM-DarkGray: hsl(0, 0%, 52%);
 // Light Mode Background
 $LM-LightGray: hsl(0, 0%, 98%);
 
+// :root {
+//   --background: $LM-LightGray;
+//   --text-primary: $LM-VeryDarkBlue;
+//   --element: $LM-DarkGray
+// }
+// [data-theme='dark'] {
+//   --background: $DM-VeryDarkBlue;
+//   --text-primary: $White;
+//   --element: $$DM-DarkBlue;
+// }
+// }
+
+// $themes: (
+//         light: (
+//                 themelogo: url("../images/brand/logo_vertical.svg"),
+//                 serachlogo: url("../images/brand/logo_vertical.svg"),
+//                 bg: $LM-LightGray,
+//                 element-bg: $LM-DarkGray,
+//                 text: $LM-VeryDarkBlue,
+//         ),
+//         dark: (
+//                 themelogo: url("../images/brand/logo_vertical--invert.svg"),
+//                 serachlogo: url("../images/brand/logo_vertical.svg"),
+//                 bg: $DM-VeryDarkBlue,
+//                 element-bg: $DM-DarkBlue,
+//                 text: $White,
+//         ),
+// );
+
 @mixin for-phone-only {
   @media (max-width: 599px) {
     @content;

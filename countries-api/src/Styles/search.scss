@@ -8,7 +8,8 @@
 
 #drop-down-btn {
   width: 15em;
-  background-color: $DM-DarkBlue;
+  background-color: white;
+  color: $LM-VeryDarkBlue;
   color: white;
   font-size: 15px;
   padding: 1.7em 0.5em;
@@ -16,12 +17,14 @@
 }
 
 .dropdown-content {
-  background-color: $DM-DarkBlue;
+  background-color: white;
+  color: $LM-VeryDarkBlue;
   width: 14em;
 }
 
 .input {
-  background-color: $DM-DarkBlue;
+  background-color: white;
+  color: $LM-VeryDarkBlue;
   width: 100%;
   height: 3em;
   border: none;
