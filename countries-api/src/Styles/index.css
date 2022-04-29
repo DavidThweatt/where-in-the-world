@@ -1,6 +1,9 @@
-body {
-  font-family: "Nunito Sans", sans-serif;
-  background-color: hsl(0deg, 0%, 98%);
-  color: hsl(200deg, 15%, 8%);
-  height: 100%;
+:root {
+  --background: white;
+  --text-primary: hsl(200, 15%, 8%);
+}
+
+[data-theme=Dark] {
+  --background: hsl(209, 23%, 22%);
+  --text-primary: white;
 }/*# sourceMappingURL=index.css.map */

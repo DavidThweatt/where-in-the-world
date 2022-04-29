@@ -58,7 +58,11 @@ export default function Country(props) {
           </button>
         </Link>
       </div>
-      <div className="country_info">
+      <div
+        className={
+          props.theme === "Dark" ? "country_info_dark" : "country_info"
+        }
+      >
         <figure className="image is-5by3 flag">
           <img
             src={countryData.flags && countryData.flags.png}

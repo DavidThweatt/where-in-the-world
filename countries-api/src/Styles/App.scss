@@ -1,0 +1,13 @@
+@import "../Styles/variables.scss";
+
+.App {
+  background-color: $LM-LightGray;
+  font-family: $font-stack;
+  height: 100%;
+}
+
+.AppDark {
+  background-color: $DM-VeryDarkBlue;
+  font-family: $font-stack;
+  height: 100%;
+}

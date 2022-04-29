@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "../Styles/main.css";
-import "../Styles/search.css";
 
 import dropDownDarkMode from "../images/arrow-drop-down-line-white.svg";
 import dropDownLightMode from "../images/arrow-drop-down-line-dark.svg";
@@ -12,14 +11,14 @@ import lightModeSearch from "../images/search-light-mode.svg";
 export default function Main(props) {
   const cardEle = props.displayData.map((Country, index) => (
     <Link key={index} to={`/${Country.cca2}`}>
-      <div className="country_card mainColumn card mb-6">
+      <div className="country_cards MainColumn card mb-6">
         <div className="card-image">
           <figure className="image is-5by3">
             <img src={Country.flags.png} alt="Flag" />
           </figure>
         </div>
-        <div className="content  pb-0">
-          <h2 className=" has-text-weight-bold is-size-4 p-5 m-0">
+        <div className="pb-0">
+          <h2 className="has-text-weight-bold is-size-4 p-5 m-0">
             {Country.name.common}
           </h2>
           <p className="px-5 pb-2 m-0">
@@ -63,16 +62,16 @@ export default function Main(props) {
               </div>
             </div>
           </div>
-          <div className="column">
+          <div className="column pb-6 dropdown_div">
             <div className={props.isActive ? "dropdown is-active" : "dropdown"}>
-              <div className="dropdown-trigger pb-5 pl-4">
+              <div className="dropdown-trigger pl-4">
                 <button
                   onClick={props.openCloseDropDownClick}
-                  id="drop-down-btn"
+                  id="drop_down_btn"
                   className="button is-flex is-justify-content-space-between drop_down"
                 >
                   <p className="dropTile pl-1">Filter by region</p>
-                  <figure className="icon-drop-down">
+                  <figure className="drop_down_icon">
                     <img
                       src={
                         props.theme === "Dark"
@@ -85,11 +84,11 @@ export default function Main(props) {
                 </button>
               </div>
               <div
-                className="dropdown-menu pl-3 pt-0"
+                className="dropdown-menu pl-4 pt-1 mt-0"
                 id="dropdown-menu"
                 role="menu"
               >
-                <div className="dropdown-content drop_down">
+                <div className="dropdown-content drop_down ">
                   <div
                     className="dropdown-item is-clickable "
                     onClick={() => props.getAll("All")}
@@ -132,7 +131,9 @@ export default function Main(props) {
           </div>
         </div>
       </div>
-      <div className="container px-6 py-2 m-3">{cardEle}</div>
+      <div className="container country_cards_container px-6 py-2 m-3">
+        {cardEle}
+      </div>
     </div>
   );
 }

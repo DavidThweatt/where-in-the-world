@@ -1,5 +1,6 @@
 import React from "react";
 import "bulma/css/bulma.css";
+import "./Styles/App.css";
 import Header from "./Components/header";
 import Main from "./Components/main";
 import Country from "./Components/country";
@@ -23,11 +24,16 @@ function App() {
     getAll,
     toggleTheme,
     theme,
+    changeTheme,
   } = useLogic();
 
   return (
-    <div>
-      <Header toggleTheme={toggleTheme} theme={theme} />
+    <div className={theme === "Dark" ? "AppDark" : "App"} data-theme={theme}>
+      <Header
+        toggleTheme={toggleTheme}
+        theme={theme}
+        changeTheme={changeTheme}
+      />
       <Routes>
         <Route
           path="/"
@@ -47,10 +53,14 @@ function App() {
               findRegion={findRegion}
               getAll={getAll}
               theme={theme}
+              changeTheme={changeTheme}
             />
           }
         />
-        <Route path="/:countryCode" element={<Country theme={theme} />} />
+        <Route
+          path="/:countryCode"
+          element={<Country theme={theme} changeTheme={changeTheme} />}
+        />
       </Routes>
     </div>
   );

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import useLocalStorage from "use-local-storage";
 
 export default function useLogic() {
   const [displayData, setDisplayData] = useState([]);
@@ -7,7 +8,12 @@ export default function useLogic() {
   const [all, setAll] = useState([]);
   const inputRef = useRef(null);
   const [text, setText] = useState("");
-  const [theme, setTheme] = useState("Dark");
+
+  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [theme, setTheme] = useLocalStorage(
+    "theme",
+    defaultDark ? "Dark" : "Light"
+  );
 
   const region_url = `https://restcountries.com/v3.1/region/${region}?fields=name,cca2,population,region,subregion,capital,currencies,flags,borders,languages`;
   const all_countries = `https://restcountries.com/v3.1/all?fields=name,cca2,population,region,capital,flags`;
@@ -15,7 +21,11 @@ export default function useLogic() {
   function toggleTheme() {
     setTheme((prevTheme) => (prevTheme === "Dark" ? "Light" : "Dark"));
   }
-  console.log(theme);
+
+  function changeTheme() {
+    return theme === "Dark" ? ".dark" : "";
+  }
+
   useEffect(() => {
     fetch(all_countries)
       .then((response) => response.json())
@@ -73,5 +83,6 @@ export default function useLogic() {
     getAll,
     theme,
     toggleTheme,
+    changeTheme,
   };
 }

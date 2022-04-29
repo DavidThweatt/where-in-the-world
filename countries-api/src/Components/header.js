@@ -14,17 +14,19 @@ export default function Header(props) {
         </div>
         <div className="column is-one-third is-flex is-justify-content-flex-end">
           <button
-            className="p-3 darkBtn button has-text-weight-medium"
+            className="darkBtn has-text-weight-medium"
             onClick={props.toggleTheme}
           >
-            <figure className="image is-24x24 mr-2">
+            <figure className="image is-24x24 mr-1">
               <img
                 src={props.theme === "Dark" ? sun : moon}
                 alt="moon dark mode"
                 className="moon"
               />
             </figure>
-            {`${props.theme === "Dark" ? "Light" : "Dark"} Mode`}
+            <span className="text">{`${
+              props.theme === "Dark" ? "Light" : "Dark"
+            } Mode`}</span>
           </button>
         </div>
       </div>
