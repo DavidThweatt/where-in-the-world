@@ -5,7 +5,7 @@ import sun from "../images/sun-fill.svg";
 
 export default function Header(props) {
   return (
-    <header className="section m-0 p-0">
+    <header className="section p-0 mb-5">
       <div className="columns header is-mobile is-flex is-align-items-center m-0 p-0">
         <div className="column">
           <h1 className="p-4 title ml-6-until-widescreen is-size-4-tablet is-size-5-mobile has-text-weight-bold">

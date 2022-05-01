@@ -11,7 +11,7 @@ import lightModeSearch from "../images/search-light-mode.svg";
 export default function Main(props) {
   const cardEle = props.displayData.map((Country, index) => (
     <Link key={index} to={`/${Country.cca2}`}>
-      <div className="country_cards MainColumn card mb-6">
+      <div className="country_cards MainColumn card">
         <div className="card-image">
           <figure className="image is-5by3">
             <img src={Country.flags.png} alt="Flag" />
@@ -39,10 +39,10 @@ export default function Main(props) {
   ));
 
   return (
-    <div>
-      <div>
-        <div className="columns">
-          <div className="column mt-5 mb-3 mx-4">
+    <div className="main_container">
+      <div className="search_div">
+        <div className="columns search_columns">
+          <div className="column">
             <div className="field">
               <div className="control has-icons-left search_bar">
                 <input
@@ -51,7 +51,7 @@ export default function Main(props) {
                   value={props.text}
                   onChange={props.handleChange}
                 />
-                <div className="icon is-small is-left pt-2">
+                <div className="icon is-small is-left ml-2 pt-3">
                   <img
                     src={
                       props.theme === "Dark" ? darkModeSearch : lightModeSearch
@@ -62,15 +62,15 @@ export default function Main(props) {
               </div>
             </div>
           </div>
-          <div className="column pb-6 dropdown_div">
+          <div className="column dropdown_div">
             <div className={props.isActive ? "dropdown is-active" : "dropdown"}>
-              <div className="dropdown-trigger pl-4">
+              <div className="dropdown-trigger">
                 <button
                   onClick={props.openCloseDropDownClick}
                   id="drop_down_btn"
-                  className="button is-flex is-justify-content-space-between drop_down"
+                  className="button is-flex is-justify-content-space-between"
                 >
-                  <p className="dropTile pl-1">Filter by region</p>
+                  <p className="dropTile pl-4">Filter by region</p>
                   <figure className="drop_down_icon">
                     <img
                       src={
@@ -131,9 +131,7 @@ export default function Main(props) {
           </div>
         </div>
       </div>
-      <div className="container country_cards_container px-6 py-2 m-3">
-        {cardEle}
-      </div>
+      <div className="country_cards_container">{cardEle}</div>
     </div>
   );
 }
