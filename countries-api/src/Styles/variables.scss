@@ -19,6 +19,7 @@ $LM-LightGray: hsl(0, 0%, 98%);
     @content;
   }
 }
+
 @mixin for-tablet-portrait-up {
   @media (min-width: 600px) {
     @content;
@@ -26,7 +27,7 @@ $LM-LightGray: hsl(0, 0%, 98%);
 }
 
 @mixin for-tablet-mid {
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     @content;
   }
 }

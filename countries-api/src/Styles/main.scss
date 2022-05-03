@@ -5,16 +5,13 @@
 }
 
 .main_container {
-  margin: 2em;
+  height: 100%;
+  margin: 2em 2em 0 2em;
 }
 
 .search_columns {
   justify-content: space-between;
   margin: 0 1em;
-
-  @include for-desktop-up {
-    // margin: 0 4em;
-  }
 
   .search_bar {
     max-width: 400px;

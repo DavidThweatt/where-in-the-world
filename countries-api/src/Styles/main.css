@@ -3,7 +3,8 @@
 }
 
 .main_container {
-  margin: 2em;
+  height: 100%;
+  margin: 2em 2em 0 2em;
 }
 
 .search_columns {
