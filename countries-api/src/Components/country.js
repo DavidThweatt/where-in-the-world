@@ -66,8 +66,9 @@ export default function Country(props) {
               : "column country_info"
           }
         >
-          <figure className="image is-5by3 flag">
+          <figure className="image flag">
             <img
+              className="flag_img"
               src={countryData.flags && countryData.flags.png}
               alt="country flag"
             />
@@ -115,9 +116,9 @@ export default function Country(props) {
                 <span className="pl-2">{countryData.capital}</span>
               </p>
             </div>
-            <div className="column right_column pt-5">
+            <div className="column right_column">
               <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+                <span className="is-size-6 has-text-weight-bold py-2">
                   Top Level Domain:
                 </span>
                 <span className="pl-2">{countryData.tld}</span>
@@ -141,24 +142,23 @@ export default function Country(props) {
               </p>
             </div>
           </div>
-
-          <div className="pt-5 borders_div">
-            <p className="pb-4">
-              <span className="is-size-5 has-text-weight-bold pt-1 pb-2">
-                Boarder Countries:
-              </span>
-            </p>
-            <div className="boarder_country_btns_div">
-              {boarderCounties.map((c, i) => (
-                <div key={i} className="pb-3 is-one-third">
-                  <Link to={`/${c.cca2}`}>
-                    <button className="boarders_btns px-5 button is-small">
-                      {c.name.common}
-                    </button>
-                  </Link>
-                </div>
-              ))}
-            </div>
+        </div>
+        <div className="pt-5 borders_div">
+          <p className="pb-4">
+            <span className="is-size-5 has-text-weight-bold pt-1 pb-2">
+              Boarder Countries:
+            </span>
+          </p>
+          <div className="boarder_country_btns_div">
+            {boarderCounties.map((c, i) => (
+              <div key={i} className="pb-3 is-one-third">
+                <Link to={`/${c.cca2}`}>
+                  <button className="boarders_btns px-5 button is-small">
+                    {c.name.common}
+                  </button>
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </div>

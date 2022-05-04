@@ -1,11 +1,11 @@
 .App {
   background-color: hsl(0deg, 0%, 98%);
   font-family: "Nunito Sans", sans-serif;
-  height: 100%;
+  min-height: 100vh;
 }
 
 .AppDark {
   background-color: hsl(207deg, 26%, 17%);
   font-family: "Nunito Sans", sans-serif;
-  height: 100%;
+  min-height: 100vh;
 }/*# sourceMappingURL=App.css.map */
