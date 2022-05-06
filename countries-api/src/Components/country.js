@@ -45,7 +45,7 @@ export default function Country(props) {
   }, [countryData]);
 
   const countryEle = (
-    <div className="container p-5">
+    <div className="container_div p-5">
       <div className="pt2 pb-6">
         <Link to="/">
           <button className="dm_btn pr-4 button is-small">
@@ -58,12 +58,10 @@ export default function Country(props) {
           </button>
         </Link>
       </div>
-      <div className="columns big_columns">
+      <div className="big_columns">
         <div
           className={
-            props.theme === "Dark"
-              ? "column country_info_dark"
-              : "column country_info"
+            props.theme === "Dark" ? "country_info_dark" : "country_info"
           }
         >
           <figure className="image flag">
@@ -74,75 +72,74 @@ export default function Country(props) {
             />
           </figure>
         </div>
-        <div className="column info_column">
-          <div className="columns">
-            <div className="column left_column">
-              <h2 className="is-size-4 has-text-weight-bold h2_name">
-                {countryData.name && countryData.name.common}
-              </h2>
-              <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Official Name:
-                </span>
-                <span className="pl-2">
-                  {countryData.name && countryData.name.official}
-                </span>
-              </p>
-              <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Population:
-                </span>
-                <span className="pl-2">
-                  {countryData.population &&
-                    countryData.population.toLocaleString("en-US")}
-                </span>
-              </p>
-              <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Region:
-                </span>
-                <span className="pl-2">{countryData.region}</span>
-              </p>
-              <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Sub Region:
-                </span>
-                <span className="pl-2">{countryData.subregion}</span>
-              </p>
-              <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Capital:
-                </span>
-                <span className="pl-2">{countryData.capital}</span>
-              </p>
-            </div>
-            <div className="column right_column">
-              <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold py-2">
-                  Top Level Domain:
-                </span>
-                <span className="pl-2">{countryData.tld}</span>
-              </p>
-              <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Currencies:
-                </span>
-                <span className="pl-2">
-                  {countryData.currencies &&
-                    Object.keys(countryData.currencies)}
-                </span>
-              </p>
-              <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Languages:
-                </span>
-                <span className="pl-3">
-                  {countryData.languages && Object.keys(countryData.languages)}
-                </span>
-              </p>
-            </div>
+        <div className="info_column">
+          <div className="left_column">
+            <h2 className="is-size-4 has-text-weight-bold h2_name">
+              {countryData.name && countryData.name.common}
+            </h2>
+            <p className="pb-3">
+              <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+                Official Name:
+              </span>
+              <span className="pl-2">
+                {countryData.name && countryData.name.official}
+              </span>
+            </p>
+            <p className="pb-3">
+              <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+                Population:
+              </span>
+              <span className="pl-2">
+                {countryData.population &&
+                  countryData.population.toLocaleString("en-US")}
+              </span>
+            </p>
+            <p className="pb-3">
+              <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+                Region:
+              </span>
+              <span className="pl-2">{countryData.region}</span>
+            </p>
+            <p className="pb-3">
+              <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+                Sub Region:
+              </span>
+              <span className="pl-2">{countryData.subregion}</span>
+            </p>
+            <p className="pb-3">
+              <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+                Capital:
+              </span>
+              <span className="pl-2">{countryData.capital}</span>
+            </p>
+          </div>
+          <div className="right_column">
+            <p className="pb-3">
+              <span className="is-size-6 has-text-weight-bold py-2">
+                Top Level Domain:
+              </span>
+              <span className="pl-2">{countryData.tld}</span>
+            </p>
+            <p className="pb-3">
+              <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+                Currencies:
+              </span>
+              <span className="pl-2">
+                {countryData.currencies && Object.keys(countryData.currencies)}
+              </span>
+            </p>
+            <p className="pb-3">
+              <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
+                Languages:
+              </span>
+              <span className="pl-3">
+                {countryData.languages && Object.keys(countryData.languages)}
+              </span>
+            </p>
           </div>
         </div>
+      </div>
+      <div className="border_container">
         <div className="pt-5 borders_div">
           <p className="pb-4">
             <span className="is-size-5 has-text-weight-bold pt-1 pb-2">
