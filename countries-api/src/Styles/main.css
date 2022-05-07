@@ -8,7 +8,7 @@
 
 .search_div .search_columns {
   justify-content: space-between;
-  margin: 0 1em;
+  margin: 0;
 }
 .search_div .search_columns .search_bar {
   max-width: 400px;

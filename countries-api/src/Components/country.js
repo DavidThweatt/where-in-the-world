@@ -44,7 +44,7 @@ export default function Country(props) {
       );
   }, [countryData]);
 
-  console.log(countryData);
+  //console.log(countryData);
 
   const countryEle = (
     <div className="container_div p-5">

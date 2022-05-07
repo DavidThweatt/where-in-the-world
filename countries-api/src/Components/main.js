@@ -84,7 +84,7 @@ export default function Main(props) {
                 </button>
               </div>
               <div
-                className="dropdown-menu pl-4 pt-1 mt-0"
+                className="dropdown-menu pl-0 pt-1 mt-0"
                 id="dropdown-menu"
                 role="menu"
               >
