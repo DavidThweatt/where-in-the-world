@@ -56,6 +56,10 @@
 
   @include for-tablet-mid {
     margin-left: 3em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 
   @include for-desktop-up {
@@ -130,10 +134,8 @@
   }
 }
 .border_container {
-  @include for-desktop-up {
-    padding: 0 13em;
-    display: flex;
-    justify-content: end;
+  @include for-tablet-mid {
+    margin-left: 2em;
   }
 
   .borders_div {
@@ -142,11 +144,7 @@
     padding: 1em 1em 1em 0;
     margin: 0;
 
-    @include for-tablet-portrait-up {
-      padding: 3em;
-    }
-
-    @include for-desktop-up {
+    @include for-tablet-mid {
     }
 
     .boarder_country_btns_div {
