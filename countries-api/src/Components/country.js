@@ -44,7 +44,17 @@ export default function Country(props) {
       );
   }, [countryData]);
 
-  //console.log(countryData);
+  function getInfoName(i) {
+    for (const prop in i) {
+      return i[prop].name;
+    }
+  }
+
+  function getInfo(i) {
+    for (const prop in i) {
+      return i[prop];
+    }
+  }
 
   const countryEle = (
     <div className="container_div p-5">
@@ -128,17 +138,14 @@ export default function Country(props) {
                   Currencies:
                 </span>
                 <span className="pl-2">
-                  {countryData.currencies &&
-                    Object.keys(countryData.currencies)}
+                  {getInfoName(countryData.currencies)}
                 </span>
               </p>
               <p className="pb-3">
                 <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
                   Languages:
                 </span>
-                <span className="pl-3">
-                  {countryData.languages && Object.keys(countryData.languages)}
-                </span>
+                <span className="pl-3">{getInfo(countryData.languages)}</span>
               </p>
             </div>
           </div>
