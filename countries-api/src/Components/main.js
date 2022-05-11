@@ -97,31 +97,31 @@ export default function Main(props) {
                   </div>
                   <div
                     className="dropdown-item is-clickable "
-                    onClick={() => props.findRegion("Africa")}
+                    onClick={() => props.setRegion("Africa")}
                   >
                     {"Africa"}
                   </div>
                   <div
                     className="dropdown-item is-clickable"
-                    onClick={() => props.findRegion("Americas")}
+                    onClick={() => props.setRegion("Americas")}
                   >
                     {"Americas"}
                   </div>
                   <div
                     className="dropdown-item is-clickable "
-                    onClick={() => props.findRegion("Asia")}
+                    onClick={() => props.setRegion("Asia")}
                   >
                     {"Asia"}
                   </div>
                   <div
                     className="dropdown-item is-clickable is-active "
-                    onClick={() => props.findRegion("Europe")}
+                    onClick={() => props.setRegion("Europe")}
                   >
                     {"Europe"}
                   </div>
                   <div
                     className="dropdown-item is-clickable"
-                    onClick={() => props.findRegion("Oceania")}
+                    onClick={() => props.setRegion("Oceania")}
                   >
                     {"Oceania"}
                   </div>

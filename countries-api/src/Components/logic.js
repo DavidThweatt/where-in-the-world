@@ -60,13 +60,16 @@ export default function useLogic() {
     setDisplayData(foundCountry);
   }
 
-  function findRegion(r) {
-    setRegion(r);
-  }
-
   function getAll() {
     setDisplayData(all);
   }
+
+  function resetHomeInfo() {
+    setText("");
+    setDisplayData(all);
+  }
+
+  all.sort((a, b) => (a.name.common > b.name.common ? 1 : -1));
 
   return {
     openCloseDropDownClick,
@@ -75,14 +78,15 @@ export default function useLogic() {
     isActive,
     inputRef,
     text,
+    setText,
     region,
     setRegion,
     region_url,
     all,
-    findRegion,
     getAll,
     theme,
     toggleTheme,
     changeTheme,
+    resetHomeInfo,
   };
 }

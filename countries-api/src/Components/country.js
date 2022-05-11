@@ -44,23 +44,33 @@ export default function Country(props) {
       );
   }, [countryData]);
 
-  function getInfoName(i) {
-    for (const prop in i) {
-      return i[prop].name;
+  function getCurrencyName(currencyObj) {
+    for (const prop in currencyObj) {
+      return currencyObj[prop].name;
     }
   }
 
-  function getInfo(i) {
+  function getLanguages(i) {
+    let languages = [];
     for (const prop in i) {
-      return i[prop];
+      languages.push(i[prop]);
     }
+    const last = languages.length - 1;
+    return languages.map((language, i) => (
+      <span key={i}>
+        {language === languages[last] ? `${language}` : `${language}, `}
+      </span>
+    ));
   }
 
   const countryEle = (
     <div className="container_div p-5">
       <div className="pt2 pb-6">
         <Link to="/">
-          <button className="dm_btn pr-4 button is-small">
+          <button
+            className="dm_btn pr-4 button is-small"
+            onClick={props.resetHomeInfo()}
+          >
             <img
               className="pl-1 pr-2"
               src={props.theme === "Dark" ? DM_arrow : LM_arrow}
@@ -138,14 +148,16 @@ export default function Country(props) {
                   Currencies:
                 </span>
                 <span className="pl-2">
-                  {getInfoName(countryData.currencies)}
+                  {getCurrencyName(countryData.currencies)}
                 </span>
               </p>
               <p className="pb-3">
                 <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
                   Languages:
                 </span>
-                <span className="pl-3">{getInfo(countryData.languages)}</span>
+                <span className="pl-3">
+                  {getLanguages(countryData.languages)}
+                </span>
               </p>
             </div>
           </div>

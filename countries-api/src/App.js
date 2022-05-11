@@ -20,11 +20,12 @@ function App() {
     handleOnSelect,
     countries,
     all,
-    findRegion,
+    setRegion,
     getAll,
     toggleTheme,
     theme,
     changeTheme,
+    resetHomeInfo,
   } = useLogic();
 
   return (
@@ -50,7 +51,7 @@ function App() {
               handleOnSelect={handleOnSelect}
               countries={countries}
               all={all}
-              findRegion={findRegion}
+              setRegion={setRegion}
               getAll={getAll}
               theme={theme}
               changeTheme={changeTheme}
@@ -59,7 +60,13 @@ function App() {
         />
         <Route
           path="/:countryCode"
-          element={<Country theme={theme} changeTheme={changeTheme} />}
+          element={
+            <Country
+              theme={theme}
+              changeTheme={changeTheme}
+              resetHomeInfo={resetHomeInfo}
+            />
+          }
         />
       </Routes>
     </div>
