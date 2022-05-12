@@ -62,11 +62,16 @@
   color: var(--text-primary);
   max-width: 525px;
 }
-.big_columns .info_column {
+@media (min-width: 600px) {
+  .big_columns .info_section {
+    padding-left: 1em;
+  }
+}
+.big_columns .info_section .info_column {
   max-width: 550px;
 }
 @media (min-width: 769px) {
-  .big_columns .info_column {
+  .big_columns .info_section .info_column {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -74,49 +79,53 @@
   }
 }
 @media (min-width: 1200px) {
-  .big_columns .info_column {
+  .big_columns .info_section .info_column {
     padding-top: 0;
   }
 }
-.big_columns .info_column .left_column {
+.big_columns .info_section .info_column .info_text {
+  font-size: 1em;
+  font-weight: 800;
+}
+.big_columns .info_section .info_column .left_column {
   max-width: 30em;
   min-width: 200px;
 }
 @media (min-width: 769px) {
-  .big_columns .info_column .left_column {
+  .big_columns .info_section .info_column .left_column {
     padding-top: 2m;
   }
 }
 @media (min-width: 900px) {
-  .big_columns .info_column .left_column {
+  .big_columns .info_section .info_column .left_column {
     padding-top: 2m;
   }
 }
 @media (min-width: 1200px) {
-  .big_columns .info_column .left_column {
+  .big_columns .info_section .info_column .left_column {
     padding: 3em 3em 3em 1em;
   }
 }
-.big_columns .info_column .left_column .h2_name {
+.big_columns .info_section .info_column .left_column .h2_name {
   padding-top: 2em;
   padding-bottom: 1em;
 }
 @media (min-width: 769px) {
-  .big_columns .info_column .left_column .h2_name {
+  .big_columns .info_section .info_column .left_column .h2_name {
     padding-top: 0;
   }
 }
-.big_columns .info_column .right_column {
+.big_columns .info_section .info_column .right_column {
   width: 200px;
   padding-top: 16px;
 }
 @media (min-width: 769px) {
-  .big_columns .info_column .right_column {
+  .big_columns .info_section .info_column .right_column {
     padding-top: 72px;
   }
 }
 @media (min-width: 1200px) {
-  .big_columns .info_column .right_column {
+  .big_columns .info_section .info_column .right_column {
     padding-top: 110px;
   }
 }

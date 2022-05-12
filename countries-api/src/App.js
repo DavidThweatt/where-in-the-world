@@ -9,64 +9,46 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   const {
-    openCloseDropDownClick,
-    pickCountry,
-    handleChange,
     displayData,
-    isActive,
-    inputRef,
-    text,
-    pickRegion,
-    handleOnSelect,
-    countries,
+    setDisplayData,
     all,
-    setRegion,
     getAll,
-    toggleTheme,
+    setRegion,
+    isActive,
+    text,
     theme,
-    changeTheme,
-    resetHomeInfo,
+    toggleTheme,
+    openCloseDropDownClick,
+    handleChange,
+    btnRef,
+    resetHome,
   } = useLogic();
 
   return (
     <div className={theme === "Dark" ? "AppDark" : "App"} data-theme={theme}>
-      <Header
-        toggleTheme={toggleTheme}
-        theme={theme}
-        changeTheme={changeTheme}
-      />
+      <Header toggleTheme={toggleTheme} theme={theme} />
       <Routes>
         <Route
           path="/"
           element={
             <Main
               displayData={displayData}
+              setDisplayData={setDisplayData}
               openCloseDropDownClick={openCloseDropDownClick}
-              pickCountry={pickCountry}
               handleChange={handleChange}
               isActive={isActive}
-              inputRef={inputRef}
               text={text}
-              pickRegion={pickRegion}
-              handleOnSelect={handleOnSelect}
-              countries={countries}
               all={all}
               setRegion={setRegion}
               getAll={getAll}
               theme={theme}
-              changeTheme={changeTheme}
+              btnRef={btnRef}
             />
           }
         />
         <Route
           path="/:countryCode"
-          element={
-            <Country
-              theme={theme}
-              changeTheme={changeTheme}
-              resetHomeInfo={resetHomeInfo}
-            />
-          }
+          element={<Country theme={theme} resetHome={resetHome} />}
         />
       </Routes>
     </div>

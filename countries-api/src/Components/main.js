@@ -11,7 +11,7 @@ import lightModeSearch from "../images/search-light-mode.svg";
 export default function Main(props) {
   const cardEle = props.displayData.map((Country, index) => (
     <Link key={index} to={`/${Country.cca2}`}>
-      <div className="country_cards MainColumn card">
+      <div className="country_cards card">
         <div className="card-image">
           <figure className="image is-5by3">
             <img src={Country.flags.png} alt="Flag" />
@@ -40,10 +40,10 @@ export default function Main(props) {
 
   return (
     <div className="main_container">
-      <div className="search_div">
+      <div>
         <div className="columns search_columns">
           <div className="column">
-            <div className="field">
+            <div>
               <div className="control has-icons-left search_bar">
                 <input
                   className="input"
@@ -64,11 +64,11 @@ export default function Main(props) {
           </div>
           <div className="column dropdown_div">
             <div className={props.isActive ? "dropdown is-active" : "dropdown"}>
-              <div className="dropdown-trigger">
+              <div>
                 <button
                   onClick={props.openCloseDropDownClick}
-                  id="drop_down_btn"
-                  className="button is-flex is-justify-content-space-between"
+                  className="drop_down_btn button"
+                  ref={props.btnRef}
                 >
                   <p className="dropTile pl-4">Filter by region</p>
                   <figure className="drop_down_icon">
@@ -88,15 +88,15 @@ export default function Main(props) {
                 id="dropdown-menu"
                 role="menu"
               >
-                <div className="dropdown-content drop_down ">
+                <div className="dropdown-content drop_down">
                   <div
-                    className="dropdown-item is-clickable "
-                    onClick={() => props.getAll("All")}
+                    className="dropdown-item is-clickable"
+                    onClick={() => props.setDisplayData(props.all)}
                   >
                     {"All"}
                   </div>
                   <div
-                    className="dropdown-item is-clickable "
+                    className="dropdown-item is-clickable"
                     onClick={() => props.setRegion("Africa")}
                   >
                     {"Africa"}
@@ -108,13 +108,13 @@ export default function Main(props) {
                     {"Americas"}
                   </div>
                   <div
-                    className="dropdown-item is-clickable "
+                    className="dropdown-item is-clickable"
                     onClick={() => props.setRegion("Asia")}
                   >
                     {"Asia"}
                   </div>
                   <div
-                    className="dropdown-item is-clickable is-active "
+                    className="dropdown-item is-clickable is-active"
                     onClick={() => props.setRegion("Europe")}
                   >
                     {"Europe"}

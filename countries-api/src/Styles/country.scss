@@ -1,11 +1,5 @@
 @import "./variables.scss";
 
-// .container_div {
-//   @include for-desktop-up {
-//     display: flex;
-//   }
-// }
-
 .dm_btn {
   background-color: var(--background);
   color: var(--text-primary);
@@ -80,55 +74,65 @@
     }
   }
 
-  .info_column {
-    max-width: 550px;
-    @include for-tablet-mid {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding-top: 3em;
+  .info_section {
+    @include for-tablet-portrait-up {
+      padding-left: 1em;
     }
 
-    @include for-desktop-up {
-      padding-top: 0;
-    }
-
-    .left_column {
-      max-width: 30em;
-      min-width: 200px;
-
+    .info_column {
+      max-width: 550px;
       @include for-tablet-mid {
-        padding-top: 2m;
-      }
-
-      @include for-tablet-landscape-up {
-        padding-top: 2m;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 3em;
       }
 
       @include for-desktop-up {
-        padding: 3em 3em 3em 1em;
+        padding-top: 0;
+      }
+      .info_text {
+        font-size: 1em;
+        font-weight: 800;
       }
 
-      .h2_name {
-        padding-top: 2em;
-        padding-bottom: 1em;
+      .left_column {
+        max-width: 30em;
+        min-width: 200px;
 
         @include for-tablet-mid {
-          padding-top: 0;
+          padding-top: 2m;
+        }
+
+        @include for-tablet-landscape-up {
+          padding-top: 2m;
+        }
+
+        @include for-desktop-up {
+          padding: 3em 3em 3em 1em;
+        }
+
+        .h2_name {
+          padding-top: 2em;
+          padding-bottom: 1em;
+
+          @include for-tablet-mid {
+            padding-top: 0;
+          }
         }
       }
-    }
 
-    .right_column {
-      width: 200px;
-      padding-top: 16px;
+      .right_column {
+        width: 200px;
+        padding-top: 16px;
 
-      @include for-tablet-mid {
-        padding-top: 72px;
-      }
+        @include for-tablet-mid {
+          padding-top: 72px;
+        }
 
-      @include for-desktop-up {
-        padding-top: 110px;
+        @include for-desktop-up {
+          padding-top: 110px;
+        }
       }
     }
   }

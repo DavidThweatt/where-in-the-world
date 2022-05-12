@@ -69,7 +69,7 @@ export default function Country(props) {
         <Link to="/">
           <button
             className="dm_btn pr-4 button is-small"
-            onClick={props.resetHomeInfo()}
+            onClick={props.resetHome()}
           >
             <img
               className="pl-1 pr-2"
@@ -101,60 +101,44 @@ export default function Country(props) {
                 {countryData.name && countryData.name.common}
               </h2>
               <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Official Name:
-                </span>
+                <span className="info_text">Official Name:</span>
                 <span className="pl-2">
                   {countryData.name && countryData.name.official}
                 </span>
               </p>
               <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Population:
-                </span>
+                <span className="info_text">Population:</span>
                 <span className="pl-2">
                   {countryData.population &&
                     countryData.population.toLocaleString("en-US")}
                 </span>
               </p>
               <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Region:
-                </span>
+                <span className="info_text">Region:</span>
                 <span className="pl-2">{countryData.region}</span>
               </p>
               <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Sub Region:
-                </span>
+                <span className="info_text">Sub Region:</span>
                 <span className="pl-2">{countryData.subregion}</span>
               </p>
               <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Capital:
-                </span>
+                <span className="info_text">Capital:</span>
                 <span className="pl-2">{countryData.capital}</span>
               </p>
             </div>
             <div className="right_column">
               <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold py-2">
-                  Top Level Domain:
-                </span>
+                <span className="info_text">Top Level Domain:</span>
                 <span className="pl-2">{countryData.tld}</span>
               </p>
               <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Currencies:
-                </span>
+                <span className="info_text">Currencies:</span>
                 <span className="pl-2">
                   {getCurrencyName(countryData.currencies)}
                 </span>
               </p>
               <p className="pb-3">
-                <span className="is-size-6 has-text-weight-bold pt-1 pb-2">
-                  Languages:
-                </span>
+                <span className="info_text">Languages:</span>
                 <span className="pl-3">
                   {getLanguages(countryData.languages)}
                 </span>
@@ -194,5 +178,5 @@ export default function Country(props) {
     return <p>There was an error loading your data!</p>;
   }
 
-  return <section className="country_ele_section">{countryEle}</section>;
+  return <section>{countryEle}</section>;
 }

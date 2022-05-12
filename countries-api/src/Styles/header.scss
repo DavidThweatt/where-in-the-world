@@ -3,6 +3,10 @@
 
 .header {
   background-color: var(--background);
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
   height: 8em;
   width: 100%;
   margin-bottom: 6em;
@@ -15,6 +19,9 @@
 
   .title {
     color: var(--text-primary);
+    padding: 1em;
+    font-weight: 800;
+    font-size: 1.8rem;
     @include for-tablet-portrait-up {
       margin-left: 2em;
     }
@@ -36,6 +43,8 @@
     justify-content: space-around;
     padding: 0 2px 0 0;
     border: none;
+    font-weight: 600;
+    cursor: pointer;
     @include for-tablet-portrait-up {
       margin-right: 42px;
     }
