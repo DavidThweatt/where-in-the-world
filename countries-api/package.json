@@ -14,11 +14,11 @@
     "react-search-autocomplete": "^6.1.1",
     "use-local-storage": "^2.3.6",
     "web-vitals": "^2.1.4",
-    "homepage": "https://myusername.github.io"
+    "homepage": "https://davidthweatt.github.io/where-in-the-world"
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
