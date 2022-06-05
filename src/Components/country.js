@@ -66,7 +66,7 @@ export default function Country(props) {
   const countryEle = (
     <div className="container_div p-5">
       <div className="pt2 pb-6">
-        <Link to="/">
+        <Link to="/where-in-the-world">
           <button
             className="dm_btn pr-4 button is-small"
             onClick={props.resetHome()}
