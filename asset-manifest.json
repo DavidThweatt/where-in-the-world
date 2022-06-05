@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/where-in-the-world/static/css/main.58d562c2.css",
+    "main.js": "/where-in-the-world/static/js/main.1db05b48.js",
+    "index.html": "/where-in-the-world/index.html",
+    "static/media/sun-fill.svg": "/where-in-the-world/static/media/sun-fill.d09dcc891c3d7ef4389eba8ef1fdb850.svg",
+    "static/media/search-dark-mode.svg": "/where-in-the-world/static/media/search-dark-mode.8a42460917df86690c36f25c3786eedb.svg",
+    "static/media/search-light-mode.svg": "/where-in-the-world/static/media/search-light-mode.0191b43b6907ab6f5ddf699490719c3a.svg",
+    "static/media/moon-fill.svg": "/where-in-the-world/static/media/moon-fill.33b71ae20ca09d812e7ba5841cd0f50f.svg",
+    "static/media/DM-arrow-left-line.svg": "/where-in-the-world/static/media/DM-arrow-left-line.22013ec684577d7dcb693046190006d4.svg",
+    "static/media/arrow-drop-down-line-white.svg": "/where-in-the-world/static/media/arrow-drop-down-line-white.b5029d71577be49c37905e4cb0194130.svg",
+    "static/media/LM-arrow-left-line.svg": "/where-in-the-world/static/media/LM-arrow-left-line.4ebae5eb52a1d42c492e9c5bcd92019a.svg",
+    "static/media/arrow-drop-down-line-dark.svg": "/where-in-the-world/static/media/arrow-drop-down-line-dark.939f13b7b63b558e5f9d329849f70476.svg",
+    "main.58d562c2.css.map": "/where-in-the-world/static/css/main.58d562c2.css.map",
+    "main.1db05b48.js.map": "/where-in-the-world/static/js/main.1db05b48.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.58d562c2.css",
+    "static/js/main.1db05b48.js"
+  ]
+}
