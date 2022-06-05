@@ -29,7 +29,7 @@ function App() {
       <Header toggleTheme={toggleTheme} theme={theme} />
       <Routes>
         <Route
-          path="/"
+          path="/where-in-the-world"
           element={
             <Main
               displayData={displayData}
